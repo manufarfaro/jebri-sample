@@ -1,0 +1,95 @@
+<%= form_for(product, url: net_product_path) do |f| %>
+  <% if product.errors.any? %>
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="fa fa-close"></i></span></button>
+      <h4><%= t('crud.error.with_count.title', error_count: product.errors.count) %>:</h4>
+      <ul>
+        <% product.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control', placeholder: t('activerecord.attributes.product.name') %>
+    </div>
+    <div class="form-group">
+      <%= f.label :product_family %>
+      <%= f.select(
+              :product_family_id,
+              Product.options_for_product_family,
+              { include_blank: "- #{t('common_words.no_selected')} -" },
+              { class: 'form-control dropdown-toggle' })
+      %>
+    </div>
+    <div class="form-group">
+      <div class="media">
+        <div class="media-left">
+          <%= image_tag product.avatar.url(:thumb) %>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading"><%= f.label :avatar %></h4>
+          <%= f.file_field :avatar, placeholder: t('activerecord.attributes.product.avatar') %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'form-control', style: 'resize: vertical;', placeholder: t('activerecord.attributes.product.description') %>
+    </div>
+    <br/>
+    <div class="form-group">
+      <div class="media">
+        <div class="media-left">
+          <%= link_to product.documentation.url do %>
+              <i class="document-icon fa fa-file-text-o" aria-hidden="true"></i>
+          <% end %>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading"><%= f.label :documentation %></h4>
+          <%= f.file_field :documentation, placeholder: t('activerecord.attributes.product.documentation') %>
+        </div>
+      </div>
+    </div>
+    <br/>
+    <div class="form-group">
+      <div class="media">
+        <div class="media-left">
+          <%= link_to product.specification.url do %>
+              <i class="document-icon fa fa-file-text-o" aria-hidden="true"></i>
+          <% end %>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading"><%= f.label :specification %></h4>
+          <%= f.file_field :specification, placeholder: t('activerecord.attributes.product.specification') %>
+        </div>
+      </div>
+    </div>
+    <br/>
+    <div class="form-group">
+      <%= f.label :enabled %>
+      <%= f.select(
+              :enabled,
+              Product.options_for_enabled,
+              {},
+              { class: 'form-control dropdown-toggle' })
+      %>
+    </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="btn-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <%= link_to net_products_path, class: 'btn btn-warning col-xs-6 col-sm-6 col-md-6 col-lg-6' do %>
+            <i class="fa fa-level-up"></i>
+            <%= t('common_words.go_back') %>
+        <% end %>
+        <button type="submit" class="btn btn-success col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <i class="fa fa-save"></i>
+          <%= t('crud.edit.title') %>
+        </button>
+      </div>
+    </div>
+  </div>
+<% end %>

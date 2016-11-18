@@ -1,0 +1,71 @@
+<% content_for :title, t('office_phones.title') %>
+<% content_for :subtitle, t('crud.list.subtitle.of', name: @office.commerce.name) %>
+
+<% if notice %>
+    <div class="alert alert-info alert-dismissible" role="alert" id="notice">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <%= notice %>
+    </div>
+<% end %>
+
+<%= link_to net_commerce_office_path(params[:commerce_id], params[:office_id]), class: 'btn btn-warning' do %>
+    <i class="fa fa-level-up"></i>
+    <%= t('common_words.go_back') %>
+<% end %>
+
+<%= link_to new_net_commerce_office_office_phone_path, class: 'btn btn-success' do %>
+    <i class="fa fa-plus"></i>
+    <%= t('crud.create.title') %>
+<% end %>
+
+<div class="well">
+  <div class="row">
+    <%= form_for_filterrific @filterrific do |f| %>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-3">
+          <label for="filterrific_search_query"><%= t('common_words.search') %></label>
+          <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+          <div class="has-feedback">
+            <%= f.text_field(:search_query, class: 'form-control filterrific-periodically-observed') %>
+            <i class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-3">
+          <label for="filterrific_sorted_by"><%= t('activerecord.attributes.office.enabled') %></label>
+          <%= f.select(
+                  :with_enabled,
+                  @filterrific.select_options[:with_enabled],
+                  { include_blank: "- #{t('common_words.any')} -" },
+                  { class: 'form-control dropdown-toggle' }
+              ) %>
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-3">
+          <label for="filterrific_sorted_by"><%= t('common_words.sort_by') %></label>
+          <%= f.select(
+                  :sorted_by,
+                  @filterrific.select_options[:sorted_by],
+                  { include_blank: "- #{t('common_words.any')} -" },
+                  { class: 'form-control dropdown-toggle' }
+              ) %>
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4 col-lg-3">
+          <label>Acciones</label>
+          <div class="row">
+            <div class="btn-group col-xs-12 col-sm-12 col-md-12 col-lg-12" role="group" aria-label="...">
+              <button type="submit" class="btn btn-info col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <i class="fa fa-filter"></i>
+                <%= t('actions.filter.title') %>
+              </button>
+              <%= link_to reset_filterrific_url, class: 'btn btn-primary col-xs-12 col-sm-6 col-md-6 col-lg-6' do %>
+                  <i class="fa fa-eraser"></i>
+                  <%= t('actions.filter.delete') %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <%# add an automated spinner to your form when the list is refreshed %>
+        <%= render_filterrific_spinner %>
+    <% end %>
+  </div>
+</div>
+
+<%= render partial: 'net/office_phones/list', locals: { phones: @phones } %>

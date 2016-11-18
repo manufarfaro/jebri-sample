@@ -1,0 +1,79 @@
+{
+  "name": "jebri-sample",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manufarfaro/jebri-sample.git"
+  },
+  "author": "manufarfaro <manufarfaro@gmail.com>",
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/manufarfaro/jebri-sample/issues"
+  },
+  "homepage": "https://github.com/manufarfaro/jebri-sample#README",
+  "dependencies": {
+    "babel-plugin-react-transform": "^2.0.2",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-class-properties": "^6.11.5",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "babelify": "^7.3.0",
+    "browserify": "~10.2.4",
+    "browserify-incremental": "^3.0.1",
+    "qs": "^6.3.0",
+    "react": "^15.3.1",
+    "react-addons-css-transition-group": "^15.3.2",
+    "react-bootstrap": "^0.30.3",
+    "react-dom": "^15.3.1",
+    "react-owl-carousel": "^0.14.0",
+    "react-redux": "^4.4.5",
+    "react-responsive-carousel": "^3.0.21",
+    "react-router": "^2.7.0",
+    "react-router-redux": "^4.0.5",
+    "react-scroll": "^1.4.0",
+    "react-scrollchor": "^2.1.3",
+    "react-select": "^1.0.0-rc.2",
+    "react-waypoint": "^3.1.2",
+    "redux": "^3.6.0",
+    "slick-carousel": "^1.6.0",
+    "superagent": "^2.3.0"
+  },
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-react-transform": "^2.0.2",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-regenerator": "^6.14.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-polyfill": "^6.13.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-es2015-rollup": "^1.2.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "babelify": "^7.3.0",
+    "isomorphic-style-loader": "^1.0.0",
+    "livereactload": "^3.0.0",
+    "react-proxy": "^1.1.8",
+    "webpack": "^1.13.2"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  }
+}

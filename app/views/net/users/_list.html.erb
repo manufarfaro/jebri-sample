@@ -1,0 +1,46 @@
+<div id="filterrific_results">
+
+    <div>
+        <%= page_entries_info users %>
+    </div>
+
+    <table class="table">
+        <tr>
+          <th><%= t('activerecord.attributes.user.email') %></th>
+          <th><%= t('activerecord.attributes.user.name') %></th>
+          <th><%= t('activerecord.attributes.user.surname') %></th>
+          <th><%= t('activerecord.attributes.user.role') %></th>
+          <th><%= t('activerecord.attributes.user.created_at') %></th>
+          <th><%= t('common_words.actions') %></th>
+        </tr>
+        <% users.each do |user| %>
+        <tr>
+          <td><%= link_to(user.email, net_user_path(user)) %></td>
+          <td><%= link_to(user.name, net_user_path(user)) %></td>
+          <td><%= link_to(user.surname, net_user_path(user)) %></td>
+          <td><%= link_to(user.role.to_s, net_user_path(user)) %></td>
+          <td><%= link_to(user.created_at.to_s(:short), net_user_path(user)) %></td>
+          <td>
+            <%= link_to net_user_path(user), class: 'btn btn-primary' do %>
+                <i class="fa fa-eye"></i>
+                <%= t('crud.show.title') %>
+            <% end %>
+            <%= link_to edit_net_user_path(user), class: 'btn btn-info' do %>
+                <i class="fa fa-pencil"></i>
+                <%= t('crud.edit.title') %>
+            <% end %>
+            <%= link_to change_password_net_users_path(user), class: 'btn btn-warning' do %>
+                <i class="fa fa-key"></i>
+                <%= t('activerecord.attributes.user.change_password') %>
+            <% end %>
+            <%= link_to net_user_path(user), class: 'btn btn-danger', method: :delete, data: { confirm: t('crud.delete.confirm') } do %>
+                <i class="fa fa-remove"></i>
+                <%= t('crud.delete.title') %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+    </table>
+</div>
+
+<%= will_paginate users %>

@@ -1,0 +1,38 @@
+<div id="filterrific_results">
+
+    <div>
+        <%= page_entries_info models %>
+    </div>
+
+    <table class="table">
+        <tr>
+          <th><%= t('activerecord.attributes.model.name') %></th>
+          <th><%= t('activerecord.attributes.model.enabled') %></th>
+          <th><%= t('activerecord.attributes.model.created_at') %></th>
+          <th><%= t('common_words.actions') %></th>
+        </tr>
+        <% models.each do |model| %>
+        <tr>
+          <td><%= link_to(model.name, net_product_model_path(model.product, model)) %></td>
+          <td><%= link_to(t("common_words.#{model.enabled.to_s}"), net_product_model_path(model.product, model)) %></td>
+          <td><%= link_to(model.created_at.to_s(:short), net_product_model_path(model.product, model)) %></td>
+          <td>
+            <%= link_to net_product_model_path(model.product, model), class: 'btn btn-primary' do %>
+                <i class="fa fa-eye"></i>
+                <%= t('crud.show.title') %>
+            <% end %>
+            <%= link_to edit_net_product_model_path(model.product, model), class: 'btn btn-info' do %>
+                <i class="fa fa-pencil"></i>
+                <%= t('crud.edit.title') %>
+            <% end %>
+            <%= link_to net_product_model_path(model.product, model), class: 'btn btn-danger', method: :delete, data: { confirm: t('crud.delete.confirm') } do %>
+                <i class="fa fa-remove"></i>
+                <%= t('crud.delete.title') %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+    </table>
+</div>
+
+<%= will_paginate models %>

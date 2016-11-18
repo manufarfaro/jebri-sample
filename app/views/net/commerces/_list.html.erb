@@ -1,0 +1,48 @@
+<div id="filterrific_results">
+
+    <div>
+        <%= page_entries_info commerces %>
+    </div>
+
+    <table class="table">
+        <tr>
+          <th><%= t('activerecord.attributes.commerce.name') %></th>
+          <th><%= t('activerecord.attributes.commerce.avatar') %></th>
+          <th><%= t('activerecord.attributes.commerce.enabled') %></th>
+          <th><%= t('activerecord.attributes.commerce.created_at') %></th>
+          <th><%= t('common_words.actions') %></th>
+        </tr>
+        <% commerces.each do |commerce| %>
+        <tr>
+          <td><%= link_to(commerce.name, net_commerce_path(commerce)) %></td>
+          <td>
+            <%= link_to net_commerce_path(commerce) do %>
+              <%= image_tag commerce.avatar.url(:thumb), class: 'img-avatar' %>
+            <% end %>
+          </td>
+          <td><%= link_to(t("common_words.#{commerce.enabled.to_s}"), net_commerce_path(commerce)) %></td>
+          <td><%= link_to(commerce.created_at.to_s(:short), net_commerce_path(commerce)) %></td>
+          <td>
+            <%= link_to net_commerce_path(commerce), class: 'btn btn-primary' do %>
+                <i class="fa fa-eye"></i>
+                <%= t('crud.show.title') %>
+            <% end %>
+            <%= link_to edit_net_commerce_path(commerce), class: 'btn btn-info' do %>
+                <i class="fa fa-pencil"></i>
+                <%= t('crud.edit.title') %>
+            <% end %>
+            <%= link_to net_commerce_offices_path(commerce), class: 'btn btn-warning' do %>
+                <i class="fa fa-tags"></i>
+                <%= t('activerecord.attributes.commerce.actions.see_offices') %>
+            <% end %>
+            <%= link_to net_commerce_path(commerce), class: 'btn btn-danger', method: :delete, data: { confirm: t('crud.delete.confirm') } do %>
+                <i class="fa fa-remove"></i>
+                <%= t('crud.delete.title') %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+    </table>
+</div>
+
+<%= will_paginate commerces %>

@@ -1,2 +1,2 @@
 # jebri-sample
-An Rails / React.js project sample
+A Rails / React.js sample project 

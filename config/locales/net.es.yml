@@ -1,0 +1,218 @@
+---
+es:
+  crud:
+    error:
+      title: Error
+      plural: Errores
+      form:
+        invalid: No se ha podido guardar el recurso, a continuación el detalle de la razón del problema
+      with_count:
+        title: Se han encontrado uno o mas errores(%{error_count})
+    list:
+      subtitle:
+        of: "de %{name}"
+    create:
+      title: Nuevo
+      save: Salvar
+    show:
+      title: Ver
+      title_id: "Ver #%{id}"
+    edit:
+      title: Editar
+      title_id: "Editar #%{id}"
+      change_password:
+        title_email: "Cambiar Contraseña de %{email}"
+    delete:
+      title: Borrar
+      confirm: "Esta acción es irreversible. ¿Estás Seguro?"
+  actions:
+    session:
+      sign_out: Logout
+      sign_in: Login
+    filter:
+      title: filtrar
+      delete: Borrar filtro
+
+  "common_words":
+    any: Todos
+    no_selected: Sin Seleccionar
+    go_back: Volver
+    "true": Si
+    "false": No
+    actions: Acciones
+    search: Buscar
+    sort_by: Ordenar por
+  activerecord:
+    models:
+      user:
+        one: Usuario
+        other: Usuarios
+      product_family:
+        one: Familia de Products
+        other: Familias de Productos
+      commerce:
+        one: Comercio
+        other: Comercios
+      office:
+        one: Sucursal
+        other: Sucursales
+    attributes:
+      user:
+        id: id
+        role: Rol
+        roles:
+          client: Cliente
+          admin: Administrador
+        email: E-Mail
+        password: Contraseña
+        password_confirmation: Confirmar Contraseña
+        name: Nombre
+        surname: Apellido
+        avatar: Avatar
+        company_name: Compañia
+        created_at: Creado en
+        updated_at: Modificado en
+        deleted_at: Borrado en
+        change_password: "Cambiar Contraseña"
+      product_family:
+        id: Id
+        name: Nombre
+        avatar: Avatar
+        enabled: Habilitado
+        actions:
+          see_products: Ver Productos
+        created_at: Creado en
+        updated_at: Modificado en
+        deleted_at: Borrado en
+      product:
+        id: Id
+        name: Nombre
+        avatar: Avatar
+        enabled: Habilitado
+        description: Descripción
+        documentation: Documentación
+        specification: Despiece
+        product_family: Familia
+        actions:
+          see_models: Ver Modelos
+        created_at: Creado en
+        updated_at: Modificado en
+        deleted_at: Borrado en
+      commerce:
+        id: Id
+        name: Nombre
+        avatar: Avatar
+        url: Url
+        enabled: Habilitado
+        actions:
+          see_offices: Ver Sucursales
+        created_at: Creado en
+        updated_at: Modificado en
+        deleted_at: Borrado en
+      office:
+        id: Id
+        office: Sucursal
+        address: Dirección
+        city: Ciudad
+        commerce: Comercio
+        fantasy_name: Nombre de Fantasía
+        office_type: Tipo de sucursal
+        is_sales: Es punto de venta
+        is_technical_support: Es soporte técnico
+        notes: Notas
+        url: Url
+        street: Calle
+        number: Número
+        floor: Piso
+        appartment: Departamento
+        enabled: Habilitado
+        actions:
+          see_phones: Ver Teléfonos
+        created_at: Creado en
+        updated_at: Modificado en
+        deleted_at: Borrado en
+      office_phone:
+        id: Id
+        state: Provincia
+        office: Sucursal
+        commerce: Sucursal
+        phone_type: Tipo
+        number: Número
+        notes: Notas
+        enabled: Habilitado
+        created_at: Creado en
+        updated_at: Modificado en
+        deleted_at: Borrado en
+      state:
+        id: Id
+        country_alpha2: País
+        ISO3166_2: Código ISO 3166-2
+        name: Nombre
+        enabled: Habilitado
+        actions:
+          see_cities: Ver Ciudades
+        created_at: Creado en
+        updated_at: Modificado en
+        deleted_at: Borrado en
+      city:
+        id: Id
+        state: Provincia
+        name: Nombre
+        enabled: Habilitado
+        created_at: Creado en
+        updated_at: Modificado en
+        deleted_at: Borrado en
+      model:
+        id: Id
+        name: Nombre
+        product: Producto
+        power: Potencia
+        max_useful_power: Potencia Máxima Útil
+        security_brake: Freno de Seguridad
+        engine_type: Motor
+        chassis: Chasis
+        case_width: Ancho de Carcaza
+        cutting_height: Altura de corte
+        wheels: Rodado
+        collector_capacity: Capacidad de Recolector
+        cutting_surface: Superficie de corte
+        weight: Peso
+        engine_mounted_on: Motor montado sobre
+        reel_type: Tipo de Carretel
+        use: Uso
+        reel_diameter: Diametro de Tanza
+        tube: Caño
+        cutting_width: Ancho de Corte
+        includes: Incluye
+        color: Color
+        fuel_capacity: Capacidad de combustibles
+        housing_thickness: Carcasa espesor
+        packaging: Packaging
+        documentation: Documentación
+        specification: Despiece
+        enabled: Habilitado
+        created_at: Creado en
+        updated_at: Modificado en
+        deleted_at: Borrado en
+  dashboard:
+    title: Dashboard
+  users:
+    title: Usuarios
+  my_profile:
+    title: Mi Perfil
+  states:
+    title: Provincias
+  cities:
+    title: Ciudades
+  offices:
+    title: Sucursales
+  office_phones:
+    title: Teléfonos
+  commerces:
+    title: Comercios
+  models:
+    title: Modelos
+  products:
+    title: Productos
+  family_products:
+    title: Familia de Productos

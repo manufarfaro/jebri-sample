@@ -1,0 +1,81 @@
+<% content_for :title, t('cities.title') %>
+<% content_for :subtitle, t('crud.show.title_id', id: @city.id) %>
+
+<% if notice %>
+    <div class="alert alert-info alert-dismissible" role="alert" id="notice">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <%= notice %>
+    </div>
+<% end %>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="well">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.city.id' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @city.id %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.city.state' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= link_to @city.state.name, net_state_path(@city.state) %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.city.name' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @city.name %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.city.enabled' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= t("common_words.#{@city.enabled}") %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.city.created_at' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @city.created_at.to_s(:short) %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.city.updated_at' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @city.updated_at.to_s(:short) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="btn-group col-xs-12 col-sm-12 col-md-12 col-lg-12" role="group">
+        <%= link_to net_state_cities_path(@city.state), class: 'btn btn-warning col-xs-!2 col-sm-6 col-md-4 col-lg-4' do %>
+            <i class="fa fa-level-up"></i>
+            <%= t('common_words.go_back') %>
+        <% end %>
+        <%= link_to edit_net_state_city_path, class:'btn btn-info col-xs-12 col-sm-6 col-md-4 col-lg-4'  do %>
+            <i class="fa fa-pencil"></i>
+            <%= t('crud.edit.title') %>
+        <% end %>
+        <%= link_to net_state_city_path(@city), method: :delete, data: { confirm: t('crud.delete.confirm') }, class:'btn btn-danger col-xs-12 col-sm-6 col-md-4 col-lg-4'  do %>
+            <i class="fa fa-remove"></i>
+            <%= t('crud.delete.title') %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

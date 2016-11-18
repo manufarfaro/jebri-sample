@@ -1,0 +1,85 @@
+<% content_for :title, t('family_products.title') %>
+<% content_for :subtitle, t('crud.show.title_id', id: @product_family.id) %>
+
+<% if notice %>
+    <div class="alert alert-info alert-dismissible" role="alert" id="notice">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <%= notice %>
+    </div>
+<% end %>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="well">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Id</h3>
+        </div>
+        <div class="panel-body">
+          <%= @product_family.id %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.product_family.name' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @product_family.name %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.product_family.avatar' %></h3>
+        </div>
+        <div class="panel-body">
+          <td><%= image_tag @product_family.avatar.url(:thumb), class: 'img-avatar' %></td>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.product_family.enabled' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= t("common_words.#{@product_family.enabled}") %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.product_family.created_at' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @product_family.created_at.to_s(:short) %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.product_family.updated_at' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @product_family.updated_at.to_s(:short) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="btn-group col-xs-12 col-sm-12 col-md-12 col-lg-12" role="group">
+        <%= link_to net_product_families_path, class: 'btn btn-warning col-xs-!2 col-sm-6 col-md-3 col-lg-3' do %>
+            <i class="fa fa-level-up"></i>
+            <%= t('common_words.go_back') %>
+        <% end %>
+        <%= link_to edit_net_product_family_path, class:'btn btn-info col-xs-12 col-sm-6 col-md-3 col-lg-3'  do %>
+            <i class="fa fa-pencil"></i>
+            <%= t('crud.edit.title') %>
+        <% end %>
+        <%= link_to net_products_path( {filterrific: { with_product_family: @product_family.id }} ), class:'btn btn-primary col-xs-12 col-sm-6 col-md-3 col-lg-3'  do %>
+            <i class="fa fa-tags"></i>
+            <%= t('activerecord.attributes.product_family.actions.see_products') %>
+        <% end %>
+        <%= link_to net_product_family_path(@product_family), method: :delete, data: { confirm: t('crud.delete.confirm') }, class:'btn btn-danger col-xs-12 col-sm-6 col-md-3 col-lg-3'  do %>
+            <i class="fa fa-remove"></i>
+            <%= t('crud.delete.title') %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

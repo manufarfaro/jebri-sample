@@ -1,0 +1,46 @@
+@font-face {
+  font-family: 'jebri';
+  src:  url(font-path('jebri.eot?24qony'));
+  src:  url(font-path('jebri.eot?24qony#iefix')) format('embedded-opentype'),
+  url(font-path('jebri.ttf?24qony')) format('truetype'),
+  url(font-path('jebri.woff?24qony')) format('woff'),
+  url(font-path('jebri.svg?24qony#jebri')) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="jebri-"], [class*=" jebri-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'jebri', serif !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.jebri-logo-mini {
+  &:before {
+    content: $jebri-logo-mini;
+  }
+}
+.jebri-logo {
+  &:before {
+    content: $jebri-logo;
+  }
+}
+.jebri-social-youtube {
+  &:before {
+    content: $jebri-social-youtube;
+  }
+}
+.jebri-social-facebook {
+  &:before {
+    content: $jebri-social-facebook;
+  }
+}

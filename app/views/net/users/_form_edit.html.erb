@@ -1,0 +1,58 @@
+<%= form_for(net_user, url: net_user_path) do |f| %>
+  <% if net_user.errors.any? %>
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="fa fa-close"></i></span></button>
+      <h4><%= t('crud.error.with_count.title', error_count: net_user.errors.count) %>:</h4>
+      <ul>
+        <% net_user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control', placeholder: t('activerecord.attributes.user.email') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', placeholder: t('activerecord.attributes.user.name') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :surname %>
+    <%= f.text_field :surname, class: 'form-control', placeholder: t('activerecord.attributes.user.surname') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :company_name %>
+    <%= f.text_field :company_name, class: 'form-control', placeholder: t('activerecord.attributes.user.surname') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :role %>
+    <%= f.select(
+        :role,
+        User.roles.keys.to_a,
+        {},
+        { class: 'form-control dropdown-toggle' })
+    %>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="btn-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <%= link_to net_users_path, class: 'btn btn-warning col-xs-4 col-sm-4 col-md-4 col-lg-4' do %>
+            <i class="fa fa-level-up"></i>
+            <%= t('common_words.go_back') %>
+        <% end %>
+        <%= link_to change_password_net_users_path(net_user), class: 'btn btn-info col-xs-4 col-sm-4 col-md-4 col-lg-4' do %>
+            <i class="fa fa-key"></i>
+            <%= t('activerecord.attributes.user.change_password') %>
+        <% end %>
+        <button type="submit" class="btn btn-success col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <i class="fa fa-save"></i>
+          <%= t('crud.edit.title') %>
+        </button>
+      </div>
+    </div>
+  </div>
+<% end %>

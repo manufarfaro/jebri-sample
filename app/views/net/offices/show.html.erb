@@ -1,0 +1,143 @@
+<% content_for :title, t('offices.title') %>
+<% content_for :subtitle, t('crud.show.title_id', id: @office.id) %>
+
+<% if notice %>
+    <div class="alert alert-info alert-dismissible" role="alert" id="notice">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <%= notice %>
+    </div>
+<% end %>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="well">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.office.id' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @office.id %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.office.commerce' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= link_to @office.commerce.name, net_commerce_path(@office.commerce) %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.office.fantasy_name' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @office.fantasy_name %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.office.address' %></h3>
+        </div>
+        <div class="panel-body">
+          <dl class="dl-horizontal">
+            <dt><%= t 'activerecord.attributes.office.street' %></dt>
+            <dd><%= @office.street %></dd>
+            <dt><%= t 'activerecord.attributes.office.number' %></dt>
+            <dd><%= @office.number %></dd>
+            <dt><%= t 'activerecord.attributes.office.floor' %></dt>
+            <dd><%= @office.floor %></dd>
+            <dt><%= t 'activerecord.attributes.office.appartment' %></dt>
+            <dd><%= @office.appartment %></dd>
+          </dl>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.office.office_type' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @office.office_type %>
+        </div>
+      </div>
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.office.enabled' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= t("common_words.#{@office.enabled}") %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.office.url' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @office.url %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.office.notes' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @office.notes %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.office.is_sales' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= t("common_words.#{@office.is_sales ? 'true' : 'No'}") %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.office.is_technical_support' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= t("common_words.#{@office.is_technical_support ? 'true' : 'No'}") %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.office.created_at' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @office.created_at.to_s(:short) %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.office.updated_at' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @office.updated_at.to_s(:short) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="btn-group col-xs-12 col-sm-12 col-md-12 col-lg-12" role="group">
+        <%= link_to net_commerce_offices_path, class: 'btn btn-warning col-xs-!2 col-sm-6 col-md-3 col-lg-3' do %>
+            <i class="fa fa-level-up"></i>
+            <%= t('common_words.go_back') %>
+        <% end %>
+        <%= link_to edit_net_commerce_office_path, class:'btn btn-info col-xs-12 col-sm-6 col-md-3 col-lg-3'  do %>
+            <i class="fa fa-pencil"></i>
+            <%= t('crud.edit.title') %>
+        <% end %>
+        <%= link_to net_commerce_office_office_phones_path(@office.commerce, @office), class:'btn btn-primary col-xs-12 col-sm-6 col-md-3 col-lg-3'  do %>
+            <i class="fa fa-tags"></i>
+            <%= t('activerecord.attributes.office.actions.see_phones') %>
+        <% end %>
+        <%= link_to edit_net_commerce_office_path(@office.commerce, @office), method: :delete, data: { confirm: t('crud.delete.confirm') }, class:'btn btn-danger col-xs-12 col-sm-6 col-md-3 col-lg-3'  do %>
+            <i class="fa fa-remove"></i>
+            <%= t('crud.delete.title') %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

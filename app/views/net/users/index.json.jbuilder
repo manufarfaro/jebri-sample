@@ -1,0 +1,1 @@
+json.array! @net_users, partial: 'net_users/net_user', as: :net_user

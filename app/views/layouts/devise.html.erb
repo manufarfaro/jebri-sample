@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>.:: JebriNET - <%= yield(:title) || 'Inicio' %> ::.</title>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+  <%= stylesheet_link_tag 'application.net', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body class="flat-red login-page <%= controller_name -%> <%= action_name -%>">
+<%= yield %>
+<%= javascript_include_tag 'application.net', 'data-turbolinks-track': 'reload' %>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<%= form_for(model, url: net_product_models_path, method: :post) do |f| %>
+  <% if model.errors.any? %>
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="fa fa-close"></i></span></button>
+      <h4><%= t('crud.error.with_count.title', error_count: model.errors.count) %>:</h4>
+      <ul>
+        <% model.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :product %>
+    <%= f.text_field :product, disabled: true, value: @product.name ,class: 'form-control', placeholder: t('activerecord.attributes.model.name') %>
+    <%= f.hidden_field :product_id, value: @product.id, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', placeholder: t('activerecord.attributes.model.name') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :power %>
+    <%= f.text_field :power, class: 'form-control', placeholder: t('activerecord.attributes.model.power') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :max_useful_power %>
+    <%= f.text_field :max_useful_power, class: 'form-control', placeholder: t('activerecord.attributes.model.max_useful_power') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :security_brake %>&nbsp; &nbsp;<%= f.check_box :security_brake %>
+  </div>
+  <div class="form-group">
+    <%= f.label :engine_type %>
+    <%= f.text_field :engine_type, class: 'form-control', placeholder: t('activerecord.attributes.model.engine_type') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :chassis %>
+    <%= f.text_field :chassis, class: 'form-control', placeholder: t('activerecord.attributes.model.chassis') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :case_width %>
+    <%= f.text_field :case_width, class: 'form-control', placeholder: t('activerecord.attributes.model.case_width') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cutting_height %>
+    <%= f.text_field :cutting_height, class: 'form-control', placeholder: t('activerecord.attributes.model.cutting_height') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :wheels %>
+    <%= f.text_field :wheels, class: 'form-control', placeholder: t('activerecord.attributes.model.wheels') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :collector_capacity %>
+    <%= f.text_field :collector_capacity, class: 'form-control', placeholder: t('activerecord.attributes.model.collector_capacity') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cutting_surface %>
+    <%= f.text_field :cutting_surface, class: 'form-control', placeholder: t('activerecord.attributes.model.cutting_surface') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :weight %>
+    <%= f.text_field :weight, class: 'form-control', placeholder: t('activerecord.attributes.model.weight') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :engine_mounted_on %>
+    <%= f.text_field :engine_mounted_on, class: 'form-control', placeholder: t('activerecord.attributes.model.engine_mounted_on') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :reel_type %>
+    <%= f.text_field :reel_type, class: 'form-control', placeholder: t('activerecord.attributes.model.reel_type') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :use %>
+    <%= f.text_field :use, class: 'form-control', placeholder: t('activerecord.attributes.model.use') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :reel_diameter %>
+    <%= f.text_field :reel_diameter, class: 'form-control', placeholder: t('activerecord.attributes.model.reel_diameter') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :tube %>
+    <%= f.text_field :tube, class: 'form-control', placeholder: t('activerecord.attributes.model.tube') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cutting_width %>
+    <%= f.text_field :cutting_width, class: 'form-control', placeholder: t('activerecord.attributes.model.cutting_width') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :includes %>
+    <%= f.text_field :includes, class: 'form-control', placeholder: t('activerecord.attributes.model.includes') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :color %>
+    <%= f.text_field :color, class: 'form-control', placeholder: t('activerecord.attributes.model.color') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :fuel_capacity %>
+    <%= f.text_field :fuel_capacity, class: 'form-control', placeholder: t('activerecord.attributes.model.fuel_capacity') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :housing_thickness %>
+    <%= f.text_field :housing_thickness, class: 'form-control', placeholder: t('activerecord.attributes.model.housing_thickness') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :packaging %>
+    <%= f.text_field :packaging, class: 'form-control', placeholder: t('activerecord.attributes.model.packaging') %>
+  </div>
+  <br/>
+  <div class="form-group">
+    <div class="media">
+      <div class="media-left">
+        <%= link_to model.documentation.url do %>
+            <i class="document-icon fa fa-file-text-o" aria-hidden="true"></i>
+        <% end %>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><%= f.label :documentation %></h4>
+        <%= f.file_field :documentation, placeholder: t('activerecord.attributes.model.documentation') %>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <div class="form-group">
+    <div class="media">
+      <div class="media-left">
+        <%= link_to model.specification.url do %>
+            <i class="document-icon fa fa-file-text-o" aria-hidden="true"></i>
+        <% end %>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><%= f.label :specification %></h4>
+        <%= f.file_field :specification, placeholder: t('activerecord.attributes.model.specification') %>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <div class="form-group">
+    <%= f.label :enabled %>
+    <%= f.select(
+        :enabled,
+        Model.options_for_enabled,
+        {},
+        { class: 'form-control dropdown-toggle' })
+    %>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="btn-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <%= link_to net_product_models_path, class: 'btn btn-warning col-xs-12 col-sm-6 col-md-6 col-lg-6' do %>
+            <i class="fa fa-level-up"></i>
+            <%= t('common_words.go_back') %>
+        <% end %>
+        <button type="submit" class="btn btn-success col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <i class="fa fa-save"></i>
+          <%= t('crud.create.title') %>
+        </button>
+      </div>
+    </div>
+  </div>
+<% end %>

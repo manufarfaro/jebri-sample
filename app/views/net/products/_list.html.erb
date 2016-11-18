@@ -1,0 +1,50 @@
+<div id="filterrific_results">
+
+    <div>
+        <%= page_entries_info products %>
+    </div>
+
+    <table class="table">
+        <tr>
+          <th><%= t('activerecord.attributes.product.name') %></th>
+          <th><%= t('activerecord.attributes.product.avatar') %></th>
+          <th><%= t('activerecord.attributes.product.product_family') %></th>
+          <th><%= t('activerecord.attributes.product.enabled') %></th>
+          <th><%= t('activerecord.attributes.product.created_at') %></th>
+          <th><%= t('common_words.actions') %></th>
+        </tr>
+        <% products.each do |product| %>
+        <tr>
+          <td><%= link_to(product.name, net_product_path(product)) %></td>
+          <td>
+            <%= link_to net_product_path(product) do %>
+              <%= image_tag product.avatar.url(:thumb), class: 'img-avatar' %>
+            <% end %>
+          </td>
+          <td><%= link_to(product.product_family.name, net_product_family_path(product.product_family)) %></td>
+          <td><%= link_to(t("common_words.#{product.enabled}"), net_product_path(product)) %></td>
+          <td><%= link_to(product.created_at.to_s(:short), net_product_path(product)) %></td>
+          <td>
+            <%= link_to net_product_path(product), class: 'btn btn-primary' do %>
+                <i class="fa fa-eye"></i>
+                <%= t('crud.show.title') %>
+            <% end %>
+            <%= link_to edit_net_product_path(product), class: 'btn btn-info' do %>
+                <i class="fa fa-pencil"></i>
+                <%= t('crud.edit.title') %>
+            <% end %>
+            <%= link_to net_product_models_path(product), class: 'btn btn-warning' do %>
+                <i class="fa fa-tags"></i>
+                <%= t('activerecord.attributes.product.actions.see_models') %>
+            <% end %>
+            <%= link_to net_product_path(product), class: 'btn btn-danger', method: :delete, data: { confirm: t('crud.delete.confirm') } do %>
+                <i class="fa fa-remove"></i>
+                <%= t('crud.delete.title') %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+    </table>
+</div>
+
+<%= will_paginate products %>

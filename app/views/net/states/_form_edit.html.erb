@@ -1,0 +1,55 @@
+<%= form_for(state, url: net_state_path) do |f| %>
+  <% if state.errors.any? %>
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="fa fa-close"></i></span></button>
+      <h4><%= t('crud.error.with_count.title', error_count: state.errors.count) %>:</h4>
+      <ul>
+        <% state.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :ISO3166_2 %>
+    <%= f.text_field :ISO3166_2, class: 'form-control', placeholder: t('activerecord.attributes.state.ISO3166_2') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', placeholder: t('activerecord.attributes.product.name') %>
+  </div>
+  <div class="form-group">
+    <%= f.label :country_alpha2 %>
+    <%= f.select(
+            :country_alpha2,
+            State.options_for_country,
+            { include_blank: "- #{t('common_words.no_selected')} -" },
+            { class: 'form-control dropdown-toggle' })
+    %>
+  </div>
+  <div class="form-group">
+    <%= f.label :enabled %>
+    <%= f.select(
+            :enabled,
+            State.options_for_enabled,
+            {},
+            { class: 'form-control dropdown-toggle' })
+    %>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="btn-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <%= link_to net_states_path, class: 'btn btn-warning col-xs-6 col-sm-6 col-md-6 col-lg-6' do %>
+            <i class="fa fa-level-up"></i>
+            <%= t('common_words.go_back') %>
+        <% end %>
+        <button type="submit" class="btn btn-success col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <i class="fa fa-save"></i>
+          <%= t('crud.edit.title') %>
+        </button>
+      </div>
+    </div>
+  </div>
+<% end %>

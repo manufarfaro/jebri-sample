@@ -1,0 +1,28 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+@import "sass/mixins";
+@import "sass/net_variables";
+@import "bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
+@import "bootstrap-sass/assets/stylesheets/bootstrap";
+@import "sass/vendors/fontawesome";
+//@import "datatables/media/css/dataTables.bootstrap";
+//@import "bootstrap-switch/dist/css/bootstrap3/bootstrap-switch";
+//@import "choices.js/assets/styles/scss/choices";
+//@import "animate.css/animate";
+//@import "checkbox3/dist/checkbox3";
+@import "sass/vendors/vanilla_datatables";
+@import "sass/net_jebri_theme";
+@import "sass/net_jebri";
+@import "sass/icons_jebri";

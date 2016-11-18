@@ -1,0 +1,23 @@
+<% content_for :title, t('offices.title') %>
+<% content_for :subtitle, t('crud.create.title') %>
+
+<% if notice %>
+  <% if notice['error'] %>
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="fa fa-close"></i></span></button>
+      <h4><%= t('crud.error.with_count.title', error_count: notice['error'].count) %>:</h4>
+      <ul>
+        <% notice['error'].each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% else %>
+    <div class="alert alert-info alert-dismissible" role="alert" id="notice">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= notice %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= render 'form_new', office: @office %>

@@ -1,0 +1,100 @@
+<% content_for :title, t('users.title') %>
+<% content_for :subtitle, t('crud.show.title_id', id: @net_user.id) %>
+
+<% if notice %>
+    <div class="alert alert-info alert-dismissible" role="alert" id="notice">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <%= notice %>
+    </div>
+<% end %>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="well">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Id</h3>
+        </div>
+        <div class="panel-body">
+          <%= @net_user.id %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.user.email' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @net_user.email %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.user.name' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @net_user.name %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.user.avatar' %></h3>
+        </div>
+        <div class="panel-body">
+          <td>
+            <%= gravatar_tag @net_user.email, size: 100, html: { alt: 'profile' } %><br/>
+            <small>Podés cambiar tu avatar en <a href="http://es.gravatar.com/" target="_blank">gravatar.com</a></small>
+          </td>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.user.surname' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @net_user.surname %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.user.company_name' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @net_user.company_name %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.user.created_at' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @net_user.created_at.to_s(:short) %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.user.updated_at' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @net_user.updated_at.to_s(:short) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="btn-group col-xs-12 col-sm-12 col-md-12 col-lg-12" role="group">
+        <%= link_to net_users_path, class: 'btn btn-warning col-xs-3 col-sm-4 col-md-4 col-lg-4' do %>
+            <i class="fa fa-level-up"></i>
+            <%= t('common_words.go_back') %>
+        <% end %>
+        <%= link_to edit_net_user_path, class:'btn btn-info col-xs-4 col-sm-4 col-md-4 col-lg-4'  do %>
+            <i class="fa fa-pencil"></i>
+            <%= t('crud.edit.title') %>
+        <% end %>
+        <%= link_to net_user_path(@net_user), method: :delete, data: { confirm: t('crud.delete.confirm') }, class:'btn btn-danger col-xs-4 col-sm-4 col-md-4 col-lg-4'  do %>
+            <i class="fa fa-remove"></i>
+            <%= t('crud.delete.title') %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

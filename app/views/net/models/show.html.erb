@@ -1,0 +1,281 @@
+<% content_for :title, t('models.title') %>
+<% content_for :subtitle, t('crud.list.subtitle.of', name: @model.name) %>
+
+<% if notice %>
+    <div class="alert alert-info alert-dismissible" role="alert" id="notice">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <%= notice %>
+    </div>
+<% end %>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="well">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Id</h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.id %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.product' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= link_to @model.product.name, net_product_path(@model.product) %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.name' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.name %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.power' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.power %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.max_useful_power' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.max_useful_power %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.security_brake' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.security_brake ? t('common_words.true') : 'No' %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.engine_type' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.engine_type %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.chassis' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.chassis %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.case_width' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.case_width %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.cutting_height' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.cutting_height %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.wheels' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.wheels %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.collector_capacity' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.collector_capacity %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.cutting_surface' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.cutting_surface %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.weight' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.weight %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.engine_mounted_on' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.engine_mounted_on %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.reel_type' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.reel_type %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.use' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.use %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.reel_diameter' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.reel_diameter %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.tube' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.tube %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.cutting_width' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.cutting_width %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.includes' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.includes %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.color' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.color %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.fuel_capacity' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.fuel_capacity %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.housing_thickness' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.housing_thickness %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.packaging' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.packaging %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.documentation' %></h3>
+        </div>
+        <div class="panel-body">
+          <td>
+            <%= link_to @model.documentation.url != '%23' ? @model.documentation.url : '' do %>
+                <i class="document-icon fa fa-file-text-o" aria-hidden="true"></i>
+            <% end %>
+          </td>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.specification' %></h3>
+        </div>
+        <div class="panel-body">
+          <td>
+            <%= link_to @model.specification.url != '%23' ? @model.specification.url : '' do %>
+                <i class="document-icon fa fa-file-text-o" aria-hidden="true"></i>
+            <% end %>
+          </td>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.enabled' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= t("common_words.#{@model.enabled}") %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.created_at' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.created_at.to_s(:short) %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.model.updated_at' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @model.updated_at.to_s(:short) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="btn-group col-xs-12 col-sm-12 col-md-12 col-lg-12" role="group">
+        <%= link_to net_product_models_path(@model.product), class: 'btn btn-warning col-xs-!2 col-sm-6 col-md-4 col-lg-4' do %>
+            <i class="fa fa-level-up"></i>
+            <%= t('common_words.go_back') %>
+        <% end %>
+        <%= link_to edit_net_product_model_path, class:'btn btn-info col-xs-12 col-sm-6 col-md-4 col-lg-4'  do %>
+            <i class="fa fa-pencil"></i>
+            <%= t('crud.edit.title') %>
+        <% end %>
+        <%= link_to net_product_model_path(@model), method: :delete, data: { confirm: t('crud.delete.confirm') }, class:'btn btn-danger col-xs-12 col-sm-12 col-md-4 col-lg-4'  do %>
+            <i class="fa fa-remove"></i>
+            <%= t('crud.delete.title') %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

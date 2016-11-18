@@ -1,0 +1,93 @@
+<% content_for :title, t('commerces.title') %>
+<% content_for :subtitle, t('crud.show.title_id', id: @commerce.id) %>
+
+<% if notice %>
+    <div class="alert alert-info alert-dismissible" role="alert" id="notice">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <%= notice %>
+    </div>
+<% end %>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="well">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.commerce.id' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @commerce.id %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.commerce.name' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @commerce.name %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.commerce.url' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= link_to @commerce.url ? @commerce.url : '#', @commerce.url, target: '_blank' %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.commerce.avatar' %></h3>
+        </div>
+        <div class="panel-body">
+          <td><%= image_tag @commerce.avatar.url(:thumb), class: 'img-avatar' %></td>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.commerce.enabled' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= t("common_words.#{@commerce.enabled}") %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.commerce.created_at' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @commerce.created_at.to_s(:short) %>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'activerecord.attributes.commerce.updated_at' %></h3>
+        </div>
+        <div class="panel-body">
+          <%= @commerce.updated_at.to_s(:short) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="btn-group col-xs-12 col-sm-12 col-md-12 col-lg-12" role="group">
+        <%= link_to net_commerces_path, class: 'btn btn-warning col-xs-!2 col-sm-6 col-md-3 col-lg-3' do %>
+            <i class="fa fa-level-up"></i>
+            <%= t('common_words.go_back') %>
+        <% end %>
+        <%= link_to edit_net_commerce_path, class:'btn btn-info col-xs-12 col-sm-6 col-md-3 col-lg-3'  do %>
+            <i class="fa fa-pencil"></i>
+            <%= t('crud.edit.title') %>
+        <% end %>
+        <%= link_to net_commerce_offices_path(@commerce), class:'btn btn-primary col-xs-12 col-sm-6 col-md-3 col-lg-3'  do %>
+            <i class="fa fa-tags"></i>
+            <%= t('activerecord.attributes.commerce.actions.see_offices') %>
+        <% end %>
+        <%= link_to net_commerce_path(@commerce), method: :delete, data: { confirm: t('crud.delete.confirm') }, class:'btn btn-danger col-xs-12 col-sm-6 col-md-3 col-lg-3'  do %>
+            <i class="fa fa-remove"></i>
+            <%= t('crud.delete.title') %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

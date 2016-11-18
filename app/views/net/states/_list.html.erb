@@ -1,0 +1,42 @@
+<div id="filterrific_results">
+
+    <div>
+        <%= page_entries_info states %>
+    </div>
+
+    <table class="table">
+        <tr>
+          <th><%= t('activerecord.attributes.state.name') %></th>
+          <th><%= t('activerecord.attributes.state.country_alpha2') %></th>
+          <th><%= t('activerecord.attributes.state.enabled') %></th>
+          <th><%= t('common_words.actions') %></th>
+        </tr>
+        <% states.each do |state| %>
+        <tr>
+          <td><%= link_to(state.name, net_state_path(state)) %></td>
+          <td><%= link_to(ISO3166::Country.new(state.country_alpha2), net_state_path(state)) %></td>
+          <td><%= link_to(t("common_words.#{state.enabled}"), net_state_path(state)) %></td>
+          <td>
+            <%= link_to net_state_path(state), class: 'btn btn-primary' do %>
+                <i class="fa fa-eye"></i>
+                <%= t('crud.show.title') %>
+            <% end %>
+            <%= link_to edit_net_state_path(state), class: 'btn btn-info' do %>
+                <i class="fa fa-pencil"></i>
+                <%= t('crud.edit.title') %>
+            <% end %>
+            <%= link_to net_state_cities_path(state), class:'btn btn-warning'  do %>
+                <i class="fa fa-tags"></i>
+                <%= t('activerecord.attributes.state.actions.see_cities') %>
+            <% end %>
+            <%= link_to net_state_path(state), class: 'btn btn-danger', method: :delete, data: { confirm: t('crud.delete.confirm') } do %>
+                <i class="fa fa-remove"></i>
+                <%= t('crud.delete.title') %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+    </table>
+</div>
+
+<%= will_paginate states %>

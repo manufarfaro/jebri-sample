@@ -1,0 +1,38 @@
+<div id="filterrific_results">
+
+    <div>
+        <%= page_entries_info phones %>
+    </div>
+
+    <table class="table">
+        <tr>
+          <th><%= t('activerecord.attributes.office_phone.number') %></th>
+          <th><%= t('activerecord.attributes.office_phone.phone_type') %></th>
+          <th><%= t('activerecord.attributes.office_phone.enabled') %></th>
+          <th><%= t('common_words.actions') %></th>
+        </tr>
+        <% phones.each do |phone| %>
+        <tr>
+          <td><%= link_to(phone.number, net_commerce_office_office_phone_path(phone.office.commerce, phone.office, phone)) %></td>
+          <td><%= link_to(phone.phone_type, net_commerce_office_office_phone_path(phone.office.commerce, phone.office, phone)) %></td>
+          <td><%= link_to(t("common_words.#{phone.enabled}"), net_commerce_office_office_phone_path(phone.office.commerce, phone.office, phone)) %></td>
+          <td>
+            <%= link_to net_commerce_office_office_phone_path(phone.office.commerce, phone.office, phone), class: 'btn btn-primary' do %>
+                <i class="fa fa-eye"></i>
+                <%= t('crud.show.title') %>
+            <% end %>
+            <%= link_to edit_net_commerce_office_office_phone_path(phone.office.commerce, phone.office, phone), class: 'btn btn-info' do %>
+                <i class="fa fa-pencil"></i>
+                <%= t('crud.edit.title') %>
+            <% end %>
+            <%= link_to net_commerce_office_office_phone_path(phone.office.commerce, phone.office, phone), class: 'btn btn-danger', method: :delete, data: { confirm: t('crud.delete.confirm') } do %>
+                <i class="fa fa-remove"></i>
+                <%= t('crud.delete.title') %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+    </table>
+</div>
+
+<%= will_paginate phones %>

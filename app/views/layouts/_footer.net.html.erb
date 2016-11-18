@@ -1,0 +1,18 @@
+<footer class="app-footer">
+  <div class="wrapper">
+    <span class="pull-right">
+      Desarrollado por <a href="https://about.me/manufarfaro" target="_blank">Manu Farfaro</a>
+      <a id="footer-scroll" class="h3" href="#top">
+        <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
+      </a>
+    </span>
+    © <%= Time.now.year %> Copyright.
+  </div>
+</footer>
+<script>
+  var footerScrollElement = document.getElementById('footer-scroll');
+  footerScrollElement.addEventListener('click', function(event){
+    event.preventDefault();
+    window.scrollTo(0,0);
+  });
+</script>
