@@ -17,8 +17,8 @@
 // require jquery-locationpicker-plugin/dist/locationpicker.jquery
 //= require filterrific/filterrific-jquery
 // require bootstrap-switch/dist/js/bootstrap-switch
-//= require matchHeight/jquery.matchHeight
-//= require choices.js/assets/scripts/dist/choices.js
+//= require components/matchHeight/jquery.matchHeight
+//= require components/choices.js/assets/scripts/dist/choices.js
 // require ace-builds/src/ace
-//= require vanilla-datatables/vanilla-dataTables
+//= require components/vanilla-datatables/vanilla-dataTables
 //= require net/app
