@@ -1,0 +1,37 @@
+{
+  "name": "jebri-sample",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "index.js",
+  "authors": [
+    "manufarfaro <manufarfaro@gmail.com>"
+  ],
+  "license": "GPL",
+  "homepage": "https://jebri-sample.herokuapp.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react-router": "^2.7.0",
+    "bootstrap-sass": "^3.3.7",
+    "react-bootstrap": "^0.30.3",
+    "react-router-bootstrap": "^0.23.1",
+    "flat-admin-bootstrap-templates": "^2.1.2",
+    "datatables": "^1.10.12",
+    "bootstrap-switch": "^3.3.2",
+    "matchHeight": "^0.7.0",
+    "select2": "^4.0.3",
+    "animate.css": "^3.5.2",
+    "ace-builds": "^1.2.5",
+    "checkbox3": "^0.1.1",
+    "font-awesome": "^4.6.3",
+    "choices.js": "https://github.com/jshjohnson/Choices.git",
+    "vanilla-datatables": "^0.0.8",
+    "jquery-locationpicker-plugin": "^0.1.15"
+  }
+}
