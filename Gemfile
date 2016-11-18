@@ -51,6 +51,8 @@ gem 'omniauth', '~> 1.3', '>= 1.3.1'
 gem 'devise_token_auth', '~> 0.1.39'
 # All sorts of useful information about every country packaged as pretty little country objects
 gem 'countries', '~> 1.2', '>= 1.2.5'
+# Bootstrap sass
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
