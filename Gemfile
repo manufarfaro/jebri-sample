@@ -53,6 +53,8 @@ gem 'devise_token_auth', '~> 0.1.39'
 gem 'countries', '~> 1.2', '>= 1.2.5'
 # Bootstrap sass
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+# Fontawesome
+gem 'font-awesome-rails', '~> 4.7'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
