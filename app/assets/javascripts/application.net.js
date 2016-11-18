@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap/dist/js/bootstrap
+//= require bootstrap-sprockets
 //= require jquery-locationpicker-plugin/dist/locationpicker.jquery
 //= require filterrific/filterrific-jquery
 //= require bootstrap-switch/dist/js/bootstrap-switch
