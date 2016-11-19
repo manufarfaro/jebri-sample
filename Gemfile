@@ -55,6 +55,8 @@ gem 'countries', '~> 1.2', '>= 1.2.5'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 # Fontawesome
 gem 'font-awesome-rails', '~> 4.7'
+# Bower support
+gem 'bower-rails', '~> 0.11.0'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
