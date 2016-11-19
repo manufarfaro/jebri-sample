@@ -30,6 +30,7 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.5.0",
     "babelify": "^7.3.0",
+    "bower": "^1.8.0",
     "browserify": "^10.2.6",
     "browserify-incremental": "^3.0.1",
     "qs": "^6.3.0",
